@@ -1,3 +1,19 @@
+AttributeError due to accessing a private encapsulated attribute outside its defining class.
+
+> python3 main.py 
+Traceback (most recent call last):
+  File "/home/kylo/Downloads/Cc/library_manager/main.py", line 12, in <module>
+    alice.borrow(book)
+  File "/home/kylo/Downloads/Cc/library_manager/models.py", line 80, in borrow
+    if not item.__available:
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'Book' object has no attribute '_Member__available'
+
+
+
+
+output after using the method is_available(), without exposing the attribute __borrowed.
+
 > python3 main.py 
 Alice borrowed: Book: Python 101 by A. Rao (ID 1)
 Could not borrow: Python 101 is not available for borrowing.
