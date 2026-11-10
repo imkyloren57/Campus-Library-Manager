@@ -1,0 +1,10 @@
+> python3 main.py 
+Alice borrowed: Book: Python 101 by A. Rao (ID 1)
+Could not borrow: Python 101 is not available for borrowing.
+Bob borrowed: Magazine: Sports Illustrated (Issue March 2024) (ID 2)
+Could not borrow: Bob has reached the maximum number of borrowed items.
+Could not return: There Will Be Blood was not borrowed by Bob.
+Book: Python 101 by A. Rao (ID 1) -> late fee for 3 days: Rs 6
+Magazine: Sports Illustrated (Issue March 2024) (ID 2) -> late fee for 3 days: Rs 6
+DVD: There Will Be Blood (148 minutes) (ID 3) -> late fee for 3 days: Rs 15
+Total items created: 3
