@@ -7,11 +7,7 @@ Because LibraryItem marks late_fee with the @abstractmethod decorator, Python en
 
 2. Reading item.__available Outside the Class vs. is_available()
 
-If you try to read item.__available from outside the class, Python will throw an AttributeError claiming the property doesn't exist.
-This happens because of a feature called Name Mangling. When you prefix an attribute with a double underscore (__), Python internally renames it to _ClassName__variableName (in this case, _LibraryItem__available) to intentionally hide it and prevent accidental modifications from external code.
-We use the is_available() method instead for two major reasons:
-• Encapsulation: It acts as a controlled "read-only" window. External classes (like Member) can check the status, but they cannot maliciously or accidentally force the value to change (e.g., writing item.__available = True directly bypasses the business rules).
-• Future Flexibility: If you ever change how availability is calculated later (for example, checking if an item is reserved or lost instead of just a simple True/False flag), you only need to change the code inside the is_available() method. Every other class using it will continue to work perfectly without requiring a single rewrite.
+Attempting to access item.__available directly from outside the class results in a Python AttributeError due to name mangling, which enforces private encapsulation, whereas the is_available() method acts as a safe, read-only window that prevents outside classes from bypassing business rules to alter the value directly.
 
 3. LibraryItem.total_items vs. self.title
 
