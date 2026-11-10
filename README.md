@@ -1,9 +1,9 @@
 
 1. Why LibraryItem is Abstract & What Happens if DVD Forgets late_fee()
 
-LibraryItem is abstract because it represents a conceptual template, not a real-world object. You cannot walk into a library and borrow a generic "item"; you borrow a specific Book, Magazine, or DVD. Making the class abstract protects your architecture by preventing anyone from accidentally creating a blank item using LibraryItem("Generic", 999).
-If the DVD class forgets to write its own late_fee() method, Python will completely refuse to let you create a DVD object.
-Because LibraryItem marks late_fee with the @abstractmethod decorator, Python enforces a strict contractual rule: any child class must provide a concrete implementation of that method. If you try to run dvd = DVD("Inception", 3, 148) without defining late_fee inside the DVD class, Python will immediately crash with a TypeError: Can't instantiate abstract class DVD with abstract method late_fee.
+Abstract classes act as architectural blueprints to prevent invalid object creation. By defining LibraryItem as abstract, Python blocks developers from instantiating generic, incomplete items. 
+
+Marking late_fee() with the @abstractmethod decorator enforces a strict contractual rule: any child class must implement its own version of that method. If a child class fails to do so, Python will immediately crash with a TypeError instead of allowing broken code to run.
 
 2. Reading item.__available Outside the Class vs. is_available()
 
