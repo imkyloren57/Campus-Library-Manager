@@ -15,19 +15,4 @@ We use the is_available() method instead for two major reasons:
 
 3. LibraryItem.total_items vs. self.title
 
-The fundamental difference comes down to Class Scope (Shared) vs. Instance Scope (Individual).
-
-Metric	LibraryItem.total_items (Class Attribute)	self.title (Instance Attribute)
-Ownership	Owned by the entire Class blueprint.	Owned by one specific object instance.
-Copies	Only one single copy exists in computer memory.	Every new object created gets its own unique copy.
-Behavior	If it changes, the change is instantly reflected across every single item globally.	If it changes, it only alters that exact specific item, leaving others untouched.
-
-
-💡 The Analogy
-
-Think of LibraryItem.total_items like a digital counter mounted on the library ceiling tracking how many total assets are in the building. Every time a new book, magazine, or DVD passes through registration, the counter clicks up by one.
-On the other hand, self.title is like the sticker printed on the front cover of a single book. Changing the sticker on one book doesn't alter the text on any other book's cover, nor does it affect the digital counter on the ceiling.
-Would you like to explore how property decorators (@property) can make is_available() look like a standard attribute while keeping its protection, or do you want to add a __str__ magic method to clean up how items look when printed?
-
-
- python3 -c "import dis, marshal; f=open('main.cpython-312.pyc', 'rb'); f.read(16); print(dis.dis(marshal.load(f)))"
+The difference between LibraryItem.total_items and self.title lies in class scope versus instance scope. LibraryItem.total_items is a class attribute owned by the entire class blueprint, meaning only a single copy exists in memory and any change to it immediately affects all objects globally. In contrast, self.title is an instance attribute owned by a single specific object, meaning each new item gets its own independent copy and modifying it only alters that individual object without impacting others.
